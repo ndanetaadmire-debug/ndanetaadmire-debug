@@ -197,19 +197,6 @@ Every repo below ships with an architecture write-up, CI, and tests that prove t
 
 ---
 
-## 📈 Activity
-
-<div align="center">
-
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=ndanetaadmire-debug&show_icons=true&count_private=true&include_all_commits=true&hide_border=true&theme=transparent)
-![Top languages](https://github-readme-stats.vercel.app/api/top-langs/?username=ndanetaadmire-debug&layout=compact&hide_border=true&theme=transparent)
-
-![Streak](https://streak-stats.demolab.com?user=ndanetaadmire-debug&hide_border=true&theme=transparent)
-
-</div>
-
----
-
 <div align="center">
 
 **Open to senior full-stack and AI/agentic engineering roles, and to client builds.**
