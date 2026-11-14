@@ -41,7 +41,7 @@ I design **agentic AI systems that run in production**: stateful LangGraph agent
 
 ## 🤖 Agentic AI systems in production
 
-### Victor: autonomous AI representative · [live on my portfolio](https://admire-portfolio.vercel.app) · [case study](https://admire-portfolio.vercel.app/projects/victor)
+### Victor: autonomous AI representative · [live on my portfolio](https://admire-portfolio.vercel.app) · [case study](https://admire-portfolio.vercel.app/projects/victor) · [code](https://github.com/ndanetaadmire-debug/victor-ai-agent)
 A 24/7 agent that represents me to recruiters and clients. It reasons over my career, maps job specs to evidence, scopes client builds, demos live code in the chat and books interviews.
 - **LangGraph.js state graph:** a deterministic security gate (blocks prompt injection and jailbreaks before any tokens are spent) → reasoning planner → bounded multi-tool loop → sanitised SSE streaming with a visible step trace
 - **7 Zod-typed tools:** profile, experience, project search, JD-fit analysis, scope estimation, CV delivery and booking
@@ -55,11 +55,11 @@ A 24/7 agent that represents me to recruiters and clients. It reasons over my ca
 Gerko's flagship AI feature. It analyses clinician speech in real time, produces structured clinical observations and cuts consultation documentation time.
 `Node.js` `Fastify` `Redis` `WebSockets`
 
-### Lwazi Hair: AI e-commerce operations agent · [case study](https://admire-portfolio.vercel.app/projects/lwazi-hair-agent)
+### Lwazi Hair: AI e-commerce operations agent · [case study](https://admire-portfolio.vercel.app/projects/lwazi-hair-agent) · [code](https://github.com/ndanetaadmire-debug/commerce-ops-agent)
 A customer-operations agent for a live retailer. It checks stock, tracks orders, estimates delivery and routes refund escalations to a human.
 `TypeScript` `LangGraph.js` `Groq · Llama 3.3` `Webhooks` `Shopify`
 
-### Finance & accounting workflow engine · [case study](https://admire-portfolio.vercel.app/projects/finance-workflow-engine)
+### Finance & accounting workflow engine · [case study](https://admire-portfolio.vercel.app/projects/finance-workflow-engine) · [code](https://github.com/ndanetaadmire-debug/finance-workflow-engine)
 Automates invoice ingestion, OCR parsing, field-extraction validation, reconciliation and exception handling, with a human in the loop for anything uncertain.
 `Python` `C# / .NET Core` `Fastify` `Redis` `PostgreSQL`
 
@@ -84,8 +84,33 @@ Automates invoice ingestion, OCR parsing, field-extraction validation, reconcili
 
 ### 🧩 Full-stack product builds
 
-| Project | Domain | Highlights |
+| Project | Domain | Highlights | Code |
+|---|---|---|---|
+| **FinanceFlow** | Fintech | Double-entry ledger in Go: optimistic concurrency, idempotent transfers, immutable history, race- and property-tested | [repo](https://github.com/ndanetaadmire-debug/financeflow) |
+| **ShopSphere** | E-commerce | Checkout backend: VAT-correct pricing, oversell-proof reservations, payment saga with compensations, transactional outbox | [repo](https://github.com/ndanetaadmire-debug/shopsphere) |
+| **FleetFlow** | Logistics & field ops | Real-time dispatch: regret-2 assignment, event-sourced jobs, geofenced arrivals, resumable WebSocket streams | [repo](https://github.com/ndanetaadmire-debug/fleetflow) |
+| **LearnHub** | EdTech | Accessible React 19 course player: SM-2 spaced repetition, partial-credit grading, keyboard-only tested | [repo](https://github.com/ndanetaadmire-debug/learnhub) |
+| **PropManage** | PropTech | Leases with proration and escalation, payment allocation, arrears ageing, SLA-tracked maintenance | [repo](https://github.com/ndanetaadmire-debug/propmanage) |
+| **TalentHub** | HR / People Ops | Recruitment and employee-management workflows | |
+| **Knights-Nestlé MS** | Retail execution | Merchandiser scheduling and stock reporting | |
+| **VibeCheck** | Content / social | Mood-based blogging with a custom markdown renderer | [repo](https://github.com/ndanetaadmire-debug/vibe-check-blog) |
+
+### 🔬 Engineering showcase: what each repo proves
+
+Every repo below ships with an architecture write-up, CI, and tests that prove the guarantees it claims, not just the happy path.
+
+| Repo | Stack | What the tests prove |
 |---|---|---|
+| [victor-ai-agent](https://github.com/ndanetaadmire-debug/victor-ai-agent) | TypeScript · LangGraph.js · Fastify | Jailbreaks are blocked before the model runs; false "you're booked" claims are caught; contact details are never guessed |
+| [commerce-ops-agent](https://github.com/ndanetaadmire-debug/commerce-ops-agent) | TypeScript · LangGraph.js · Shopify GraphQL | Refunds can't be promised without approval; orders can't be enumerated; HMAC-verified, idempotent webhooks |
+| [finance-workflow-engine](https://github.com/ndanetaadmire-debug/finance-workflow-engine) | Python · FastAPI · PostgreSQL | Bank-detail fraud, duplicates and 3-way-match failures go to a human; audit-log tampering is detectable |
+| [financeflow](https://github.com/ndanetaadmire-debug/financeflow) | Go (stdlib only) · PostgreSQL | 200 concurrent spends never overdraw; 2,000 random transfers always net to zero; the DB rejects unbalanced entries |
+| [shopsphere](https://github.com/ndanetaadmire-debug/shopsphere) | TypeScript · Fastify | The last unit goes to exactly one buyer; discounts never lose a cent; late payments are re-reserved or auto-refunded |
+| [fleetflow](https://github.com/ndanetaadmire-debug/fleetflow) | TypeScript · WebSockets · event sourcing | Regret assignment beats greedy; the projection equals a replay of events; tenants never see each other's streams |
+| [propmanage](https://github.com/ndanetaadmire-debug/propmanage) | Python · SQLAlchemy 2.0 | A unit can't be double-let; rent prorates and escalates correctly; billing is idempotent at the DB level |
+| [learnhub](https://github.com/ndanetaadmire-debug/learnhub) | React 19 · TypeScript · Vite | The quiz works with the keyboard alone; corrupt saved state can't crash the player; "select all" scores zero |
+
+---|---|---|
 | **FinanceFlow** | Financial services | Secure dashboard for accounts, transfers and reporting |
 | **ShopSphere** | E-commerce | Full-stack storefront: catalogue, cart and order management |
 | **FleetFlow** | Logistics & field ops | Live dispatch, field-worker and task dashboard |
@@ -119,6 +144,7 @@ Automates invoice ingestion, OCR parsing, field-extraction validation, reconcili
 ![Fastify](https://img.shields.io/badge/Fastify-000000?style=flat-square&logo=fastify&logoColor=white)
 ![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white)
 ![.NET](https://img.shields.io/badge/C%23_/.NET-512BD4?style=flat-square&logo=dotnet&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
 ![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
