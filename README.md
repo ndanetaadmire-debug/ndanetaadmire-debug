@@ -51,7 +51,7 @@ A 24/7 agent that represents me to recruiters and clients. It reasons over my ca
 
 `TypeScript` `LangGraph.js` `LangChain.js` `Next.js 16` `React 19` `Groq · GPT-OSS` `Zod` `SSE` `Web Speech API` `Tailwind v4` `Resend` `Vercel Fluid Compute` `Playwright`
 
-### Scribe: AI clinical guide & co-pilot (Gerko) · [case study](https://admire-portfolio.vercel.app/projects/scribe)
+### Scribe: AI clinical guide & co-pilot (Gerko) · [case study](https://admire-portfolio.vercel.app/projects/scribe) · [how it works: open demo](https://github.com/ndanetaadmire-debug/realtime-clinical-notes-demo)
 Gerko's flagship AI feature. It analyses clinician speech in real time, produces structured clinical observations and cuts consultation documentation time.
 `Node.js` `Fastify` `Redis` `WebSockets`
 
@@ -63,6 +63,20 @@ A customer-operations agent for a live retailer. It checks stock, tracks orders,
 Automates invoice ingestion, OCR parsing, field-extraction validation, reconciliation and exception handling, with a human in the loop for anything uncertain.
 `Python` `C# / .NET Core` `Fastify` `Redis` `PostgreSQL`
 
+### 🧰 AI engineering toolkit (open source)
+
+The infrastructure that makes agents trustworthy in production: guardrails, evaluation, retrieval, tool protocols and orchestration.
+
+| Repo | What it is |
+|---|---|
+| [llm-guardrails-kit](https://github.com/ndanetaadmire-debug/llm-guardrails-kit) | Prompt-injection scoring, reversible PII redaction with checksums, tool-call policy, ledger-checked claims. CI gates recall and precision on a labelled attack corpus |
+| [agent-eval-harness](https://github.com/ndanetaadmire-debug/agent-eval-harness) | Regression testing for agents: tool-trajectory, grounded-number and PII-leak scorers, repeated runs to expose flakiness, baseline gate in CI |
+| [rag-knowledge-agent](https://github.com/ndanetaadmire-debug/rag-knowledge-agent-) | Permission-aware RAG: hybrid BM25 + dense retrieval with RRF and MMR, cited answers, grounding verifier, refuses when evidence is weak |
+| [mcp-commerce-server](https://github.com/ndanetaadmire-debug/mcp-commerce-server-) | Model Context Protocol server with scoped keys, PII masking and HMAC-bound preview-then-confirm for every write |
+| [multi-agent-research-crew](https://github.com/ndanetaadmire-debug/multi-agent-research-crew) | LangGraph planner → parallel researchers → critic → writer, with every citation verified in code and token budgets |
+| [voice-booking-agent](https://github.com/ndanetaadmire-debug/voice-booking-agent) | Phone receptionist on Twilio: spoken date/time parsing, low-confidence recovery, keypad fallback, human handoff |
+| [ai-invoice-extractor](https://github.com/ndanetaadmire-debug/ai-invoice-extractor) | LLM extraction with evidence spans checked against the document, repair loop, model fallback and a field-accuracy gate |
+
 ---
 
 ## 🏥 Production SaaS & commerce
@@ -71,7 +85,7 @@ Automates invoice ingestion, OCR parsing, field-extraction validation, reconcili
 |---|---|---|---|
 | **Gerko** | All-in-one practice management for health practitioners: scheduling, patient records, billing, reviews and an AI medical scribe | React · TypeScript · Node.js · Fastify · PostgreSQL · Redis | [app.gerko.io](https://app.gerko.io) · [case study](https://admire-portfolio.vercel.app/projects/gerko) |
 | **Lwazi Hair** | Live Shopify store with a custom wig and bundle builder, live pricing and real orders | Shopify · Liquid · JavaScript · Yoco Payments | [lwazihair.co.za](https://lwazihair.co.za) · [case study](https://admire-portfolio.vercel.app/projects/lwazi-hair) |
-| **Respectful** *(in active development)* | Privacy-first dating, marriage and family platform: engagement-ranked content feed, compatibility matching, couples spaces | Next.js 16 · Supabase · PostgreSQL RLS · Vitest · Storybook | Private repo, shipped daily |
+| **Respectful** *(MVP in active development)* | Privacy-first dating, marriage and family platform: transparent two-sided matching, Row Level Security on every table, couples and family journeys on the roadmap | Next.js 16 · Supabase · PostgreSQL RLS · Vitest · Storybook | [case study](https://github.com/ndanetaadmire-debug/respectful-platform-case-study) · app repo private |
 
 ### 🌍 Client websites: redesign & build
 
@@ -91,9 +105,9 @@ Automates invoice ingestion, OCR parsing, field-extraction validation, reconcili
 | **FleetFlow** | Logistics & field ops | Real-time dispatch: regret-2 assignment, event-sourced jobs, geofenced arrivals, resumable WebSocket streams | [repo](https://github.com/ndanetaadmire-debug/fleetflow) |
 | **LearnHub** | EdTech | Accessible React 19 course player: SM-2 spaced repetition, partial-credit grading, keyboard-only tested | [repo](https://github.com/ndanetaadmire-debug/learnhub) |
 | **PropManage** | PropTech | Leases with proration and escalation, payment allocation, arrears ageing, SLA-tracked maintenance | [repo](https://github.com/ndanetaadmire-debug/propmanage) |
-| **TalentHub** | HR / People Ops | Recruitment and employee-management workflows | |
-| **Knights-Nestlé MS** | Retail execution | Merchandiser scheduling and stock reporting | |
-| **VibeCheck** | Content / social | Mood-based blogging with a custom markdown renderer | [repo](https://github.com/ndanetaadmire-debug/vibe-check-blog) |
+| **TalentHub** | HR / People Ops | Fair, POPIA-compliant hiring in Go: blind screening, structured scorecards, four-fifths monitoring, retention and erasure | [repo](https://github.com/ndanetaadmire-debug/talenthub) |
+| **Knights-Nestlé MS** | Retail execution | Merchandiser visit planning (tiers, spacing, 2-opt routing), geofenced check-ins, on-shelf availability | [engine](https://github.com/ndanetaadmire-debug/retail-merch-scheduler) |
+| **VibeCheck** | Content / social | Mood-based blogging with a custom Markdown renderer that is XSS-safe by construction | [repo](https://github.com/ndanetaadmire-debug/vibecheck) |
 
 ### 🔬 Engineering showcase: what each repo proves
 
@@ -109,16 +123,19 @@ Every repo below ships with an architecture write-up, CI, and tests that prove t
 | [fleetflow](https://github.com/ndanetaadmire-debug/fleetflow) | TypeScript · WebSockets · event sourcing | Regret assignment beats greedy; the projection equals a replay of events; tenants never see each other's streams |
 | [propmanage](https://github.com/ndanetaadmire-debug/propmanage) | Python · SQLAlchemy 2.0 | A unit can't be double-let; rent prorates and escalates correctly; billing is idempotent at the DB level |
 | [learnhub](https://github.com/ndanetaadmire-debug/learnhub) | React 19 · TypeScript · Vite | The quiz works with the keyboard alone; corrupt saved state can't crash the player; "select all" scores zero |
+| [llm-guardrails-kit](https://github.com/ndanetaadmire-debug/llm-guardrails-kit) | TypeScript · Zod | 20/20 obfuscated attacks caught (homoglyphs, zero-width, base64) with 0 false positives; unbacked claims are corrected |
+| [agent-eval-harness](https://github.com/ndanetaadmire-debug/agent-eval-harness) | Python (stdlib) | Flaky agents fail; invented numbers and PII leaks are caught; a regressed agent fails the build |
+| [rag-knowledge-agent](https://github.com/ndanetaadmire-debug/rag-knowledge-agent-) | Python · FastAPI | Recall@4 100%; restricted documents never reach unauthorised users; a hallucinating generator is refused |
+| [mcp-commerce-server](https://github.com/ndanetaadmire-debug/mcp-commerce-server-) | TypeScript · MCP SDK | A write can't skip its preview, swap its arguments or replay an approval; PII is masked without the right scope |
+| [multi-agent-research-crew](https://github.com/ndanetaadmire-debug/multi-agent-research-crew) | TypeScript · LangGraph.js | Invented URLs and numbers are dropped and disclosed; the revision loop and token budget are bounded |
+| [voice-booking-agent](https://github.com/ndanetaadmire-debug/voice-booking-agent) | TypeScript · Twilio | 38 tests on how people really say dates and times; races and webhook retries can't double-book |
+| [ai-invoice-extractor](https://github.com/ndanetaadmire-debug/ai-invoice-extractor) | Python · Pydantic | A hallucinated total is caught by the evidence check; nothing unverified is auto-approved |
+| [talenthub](https://github.com/ndanetaadmire-debug/talenthub) | Go (stdlib only) | Reviewers can't see identity at screening; offers need two evidenced scorecards; POPIA retention runs on time |
+| [retail-merch-scheduler](https://github.com/ndanetaadmire-debug/retail-merch-scheduler) | Python | Tier frequencies met with no back-to-back visits; stock data comes only from geofenced, photo-verified visits |
+| [vibecheck](https://github.com/ndanetaadmire-debug/vibecheck) | React 19 · TypeScript | A table of real XSS payloads renders as harmless text |
+| [realtime-clinical-notes-demo](https://github.com/ndanetaadmire-debug/realtime-clinical-notes-demo) | TypeScript · WebSockets | Every note line cites its transcript; a penicillin–amoxicillin conflict blocks sign-off; logs are PHI-free |
+| [respectful-platform-case-study](https://github.com/ndanetaadmire-debug/respectful-platform-case-study) | SQL · PGlite · TypeScript | RLS policies withstand cross-user attacks against real Postgres; matching is two-sided and explainable |
 
----|---|---|
-| **FinanceFlow** | Financial services | Secure dashboard for accounts, transfers and reporting |
-| **ShopSphere** | E-commerce | Full-stack storefront: catalogue, cart and order management |
-| **FleetFlow** | Logistics & field ops | Live dispatch, field-worker and task dashboard |
-| **LearnHub** | EdTech | Courses, progress tracking and assessments |
-| **PropManage** | PropTech | Listings, tenants and maintenance workflows |
-| **TalentHub** | HR / People Ops | Recruitment and employee-management workflows |
-| **Knights-Nestlé MS** | Retail execution | Merchandiser scheduling and stock reporting |
-| **VibeCheck** | Content / social | Mood-based blogging with a custom markdown renderer |
 
 ---
 
