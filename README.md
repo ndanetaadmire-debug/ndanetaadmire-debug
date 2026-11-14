@@ -76,7 +76,7 @@ The infrastructure that makes agents trustworthy in production: guardrails, eval
 | [multi-agent-research-crew](https://github.com/ndanetaadmire-debug/multi-agent-research-crew) | LangGraph planner → parallel researchers → critic → writer, with every citation verified in code and token budgets |
 | [voice-booking-agent](https://github.com/ndanetaadmire-debug/voice-booking-agent) | Phone receptionist on Twilio: spoken date/time parsing, low-confidence recovery, keypad fallback, human handoff |
 | [ai-invoice-extractor](https://github.com/ndanetaadmire-debug/ai-invoice-extractor) | LLM extraction with evidence spans checked against the document, repair loop, model fallback and a field-accuracy gate |
-| [resilient-http-client](https://github.com/ndanetaadmire-debug/axios) | Typed HTTP client on native fetch for calling flaky APIs: jittered retries that respect Retry-After and idempotency, per-host circuit breakers, stale-if-error caching. Zero dependencies |
+| [resilient-http-client](https://github.com/ndanetaadmire-debug/resilient-http-client) | Typed HTTP client on native fetch for calling flaky APIs: jittered retries that respect Retry-After and idempotency, per-host circuit breakers, stale-if-error caching. Zero dependencies |
 
 ---
 
@@ -109,10 +109,10 @@ The infrastructure that makes agents trustworthy in production: guardrails, eval
 | **TalentHub** | HR / People Ops | Fair, POPIA-compliant hiring in Go: blind screening, structured scorecards, four-fifths monitoring, retention and erasure | [repo](https://github.com/ndanetaadmire-debug/talenthub) |
 | **Knights-Nestlé MS** | Retail execution | Merchandiser visit planning (tiers, spacing, 2-opt routing), geofenced check-ins, on-shelf availability | [engine](https://github.com/ndanetaadmire-debug/retail-merch-scheduler) |
 | **VibeCheck** | Content / social | Mood-based blogging with a custom Markdown renderer that is XSS-safe by construction | [repo](https://github.com/ndanetaadmire-debug/vibecheck) |
-| **Restaurant Ops** | Hospitality | Ordering and kitchen display: server-side pricing, a state machine enforced in code and in Postgres, session-authorised realtime | [repo](https://github.com/ndanetaadmire-debug/Full-stack-restaurant-app) |
+| **Restaurant Ops** | Hospitality | Ordering and kitchen display: server-side pricing, a state machine enforced in code and in Postgres, session-authorised realtime | [repo](https://github.com/ndanetaadmire-debug/restaurant-ops-platform) |
 | **Investment calculator** | Personal finance | SA savings planner: monthly compounding in cents, fees, inflation, TFSA limits, cent-exact goal solver | [repo](https://github.com/ndanetaadmire-debug/investment-calculator) |
-| **Read along** | Accessibility | Text-to-speech reader that highlights each word as it is spoken, with click-to-seek and a timing fallback | [repo](https://github.com/ndanetaadmire-debug/speechify-assessment) |
-| **Engineering notes** | Content | Next.js App Router blog: validated Markdown, sanitized rendering, RSS, sitemap, JSON-LD | [repo](https://github.com/ndanetaadmire-debug/nextjsp1) |
+| **Read along** | Accessibility | Text-to-speech reader that highlights each word as it is spoken, with click-to-seek and a timing fallback | [repo](https://github.com/ndanetaadmire-debug/read-along-tts) |
+| **Engineering notes** | Content | Next.js App Router blog: validated Markdown, sanitized rendering, RSS, sitemap, JSON-LD | [repo](https://github.com/ndanetaadmire-debug/nextjs-engineering-blog) |
 
 ### 🔬 Engineering showcase: what each repo proves
 
@@ -140,11 +140,11 @@ Every repo below ships with an architecture write-up, CI, and tests that prove t
 | [vibecheck](https://github.com/ndanetaadmire-debug/vibecheck) | React 19 · TypeScript | A table of real XSS payloads renders as harmless text |
 | [realtime-clinical-notes-demo](https://github.com/ndanetaadmire-debug/realtime-clinical-notes-demo) | TypeScript · WebSockets | Every note line cites its transcript; a penicillin–amoxicillin conflict blocks sign-off; logs are PHI-free |
 | [respectful-platform-case-study](https://github.com/ndanetaadmire-debug/respectful-platform-case-study) | SQL · PGlite · TypeScript | RLS policies withstand cross-user attacks against real Postgres; matching is two-sided and explainable |
-| [restaurant-ops-platform](https://github.com/ndanetaadmire-debug/Full-stack-restaurant-app) | TypeScript · Express 5 · Socket.IO · PostgreSQL | Client prices are ignored; a Postgres trigger blocks illegal status jumps; customers never receive each other's order events |
-| [resilient-http-client](https://github.com/ndanetaadmire-debug/axios) | TypeScript · native fetch | A dead upstream trips the breaker and stops being called; a POST is never retried without an idempotency key |
+| [restaurant-ops-platform](https://github.com/ndanetaadmire-debug/restaurant-ops-platform) | TypeScript · Express 5 · Socket.IO · PostgreSQL | Client prices are ignored; a Postgres trigger blocks illegal status jumps; customers never receive each other's order events |
+| [resilient-http-client](https://github.com/ndanetaadmire-debug/resilient-http-client) | TypeScript · native fetch | A dead upstream trips the breaker and stops being called; a POST is never retried without an idempotency key |
 | [investment-calculator](https://github.com/ndanetaadmire-debug/investment-calculator) | React 19 · TypeScript · fast-check | Totals reconcile to the cent on thousands of random plans; TFSA limits are never exceeded |
-| [read-along](https://github.com/ndanetaadmire-debug/speechify-assessment) | React 19 · Web Speech API | Stale events from cancelled speech never skip ahead; highlighting survives voices without word boundaries |
-| [nextjs-engineering-blog](https://github.com/ndanetaadmire-debug/nextjsp1) | Next.js 16 · TypeScript | Hostile Markdown is sanitized; a malformed post fails the build; unknown slugs are 404s, never file reads |
+| [read-along](https://github.com/ndanetaadmire-debug/read-along-tts) | React 19 · Web Speech API | Stale events from cancelled speech never skip ahead; highlighting survives voices without word boundaries |
+| [nextjs-engineering-blog](https://github.com/ndanetaadmire-debug/nextjs-engineering-blog) | Next.js 16 · TypeScript | Hostile Markdown is sanitized; a malformed post fails the build; unknown slugs are 404s, never file reads |
 
 
 ---
